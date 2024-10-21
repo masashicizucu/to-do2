@@ -1,8 +1,7 @@
 "use client";
 
-
-
 import { useState } from 'react';
+import './styles.css';  // CSSをインポート
 
 export default function Home() {
   const [todos, setTodos] = useState<string[]>([]);
@@ -16,15 +15,15 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>My ToDo List</h1>
-      <input 
-        type="text" 
-        value={newTodo} 
-        onChange={(e) => setNewTodo(e.target.value)} 
+      <input
+        type="text"
+        value={newTodo}
+        onChange={(e) => setNewTodo(e.target.value)}
+        placeholder="Enter new ToDo"
       />
       <button onClick={addTodo}>Add ToDo</button>
-
       <ul>
         {todos.map((todo, index) => (
           <li key={index}>{todo}</li>
